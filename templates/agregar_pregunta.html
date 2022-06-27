@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+  
+  {{ navbar('/agregar_pregunta', user.es_admin) }}
+
+  <h1 class="text-left">Agregar Preguntas</h1>
+  <form class="form-contol" method="post" action="/crear_pregunta">
+    <br>
+    <div class="row">
+      <div class="col-4">
+        Pregunta:
+      </div>
+      <div class="col-8"><textarea name="pregunta" id="pregunta" cols="40" rows="5"></textarea></div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        Respuesta correcta:
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Respuesta correcta" id="respCorrecta" name="respCorrecta" size="40">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        Respuesta falsa 1:
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Respuesta falsa 1" id="respFalsa1" name="respFalsa1" size="40">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        Respuesta falsa 2:
+      </div>
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Respuesta falsa 2" id="respFalsa2" name="respFalsa2" size="40">
+      </div>
+    </div>
+    <div class="row justify-content-end mt-2 mb-2">
+      <div class="col-4">
+          <div class="clearfix">
+              <span class="float-end"><a href="/" class="btn btn-danger text-white">Cancelar</a></span>
+          </div>
+      </div>
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+  </div>
+  </form>
+
+{% endblock %}

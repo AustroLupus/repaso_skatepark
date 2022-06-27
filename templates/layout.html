@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .m-azul {
+        background-color: cornflowerblue;
+      }
+      .m-verde {
+        background-color: darkseagreen;
+      }
+      a:link{
+        color: #000060;
+      }
+      a:visited{
+        color: #802200;
+      }
+      .m-cajaMensaje{
+        padding: 3rem;
+        border: 2px solid black;
+        border-radius: 1rem;
+      }
+      .trv-cajaMensaje{
+        padding: 1rem;
+        border: 2px solid black;
+        border-radius: 1rem;
+        background-color: lightgray;
+      }
+      .trv-cajaPregunta{
+        padding: 1rem;
+        border: 2px solid black;
+        border-radius: 1rem;
+        margin: 1rem;
+      }
+      .m-areaMensaje{
+        box-shadow: 10px 10px 10px cornflowerblue;
+        padding: 1.5rem;
+        margin: 1.5rem;
+        margin-bottom: 2.5rem;
+        border-radius: 0.5rem;
+      }
+      .m-commentBtn{
+        background-color: darkseagreen;
+        margin-top: -1.5rem;
+        margin-right: 1.5rem;
+      }
+      .m-areaComentario{
+        box-shadow: 10px 10px 10px darkseagreen;
+        padding: 1.5rem;
+        margin: 1.5rem;
+        margin-bottom: 2.5rem;
+        border-radius: 0.5rem;
+      }
+      .m-commentBoxBtn{
+        background-color: darkseagreen;
+        margin-right: 1.5rem;
+      }
+    </style>
+
+    <title>La Trivia</title>
+    {% block styles %}{% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      {% for error in errors %}
+        <div class="row">
+          <div class="col-4 offset-4">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Error!</strong> {{ error }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% for notice in notices %}
+      <div class="row">
+        <div class="col-4 offset-4">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>&iexcl;&Eacute;xito!</strong> {{ notice }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>    
+        </div>
+      </div>
+      {% endfor %}
+      
+      {% block main %}
+        <h2>Esto no debería verse</h2>
+      {% endblock %}
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
