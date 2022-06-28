@@ -1,7 +1,7 @@
 {
-  "name": "trivia",
+  "name": "repaso",
   "version": "1.0.0",
-  "description": "Ejercicio final del modulo 8 de JavaScript",
+  "description": "Repáso del ejercicio",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,6 +14,7 @@
     "bootstrap": "^5.1.3",
     "connect-flash": "^0.1.1",
     "express": "^4.17.3",
+    "express-fileupload": "^1.4.0",
     "express-session": "^1.17.2",
     "nodemon": "^2.0.15",
     "nunjucks": "^3.2.3",

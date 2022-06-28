@@ -2,11 +2,13 @@ const express = require('express')
 const nunjucks = require('nunjucks')
 const session = require('express-session')
 const flash = require('connect-flash')
+const fileUpload = require('express-fileupload')
+
 
 const app = express()
 
 // CONFIGURACIONES
-app.use(express.static('static'))
+app.use(express.static('public'))
 app.use(express.static('node_modules/bootstrap/dist'))
 
 nunjucks.configure("templates", {
@@ -15,7 +17,13 @@ nunjucks.configure("templates", {
   watch: true,
 });
 
-
+// configuramos la subida de archivos
+app.use(fileUpload({
+  limits: { fileSize: 5242880 },
+  abortOnLimit: true,
+  responseOnLimit: 'El peso del archivo supera el máximo (5Mb)'
+}))
+ 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 

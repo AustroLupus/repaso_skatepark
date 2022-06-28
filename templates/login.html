@@ -2,21 +2,25 @@
 
 
 {% block main %}
-<div class="row mt-5">
+<div class="container form-signin row mt-5 text-center">
   <div class="col-4 offset-4 m-azul rounded p-4">
-    <h3>Ingrese al Juego de las Trivias</h3>
-    <form method="post" action="/login">
-      <div class="mb-3 form-floating">
-        <input name="email" required type="email" class="form-control" placeholder="nombre@correo.com" autofocus>
-        <label for="floatingInput">Correo</label>
+    <h1 id="titulo" class="mb-4 fst-italic">Skate Park</h1>
+    <h3 id="subtitulo" class="mb-4">Iniciar Sesi&oacute;n</h3>
+    <hr>
+    <form method="post" action="/login" class="mb-2">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" required>
       </div>
-      <div class="mb-3 form-floating">
-        <input name="password" required type="password" class="form-control" placeholder="Contrase&ntilde;a">
-        <label for="floatingPassword">Contrase&ntilde;a</label>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" required>
       </div>
-      <button type="submit" class="btn btn-light">Ingresar</button>
+      <div class="">
+        <button type="submit" class="btn btn-success">Ingresar</button>
+      </div>
     </form>
-    <a href="/register">Registrarse</a>
+    &iquest;A&uacute;n no tienes cuenta? <a href="/register">Reg&iacute;strate</a>
   </div>
 </div>
 {% endblock %}

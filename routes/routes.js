@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require('fs').promises
 const {add_question,get_preguntas,shuffle, check_respuesta, add_score, get_scores,find_user
 } = require('../db.js')
 
@@ -6,19 +7,15 @@ const router = express.Router()
 
 function protected_route (req, res, next) {
   if (!req.session.user) {
-    return res.redirect('/login')
+    //comentar linea de abajo para trabajar sin rutas protegidas
+    //return res.redirect('/login')
   }
   next()
 }
 
 // RUTAS
 router.get('/', protected_route, async (req, res) => {
-  //const messages = await get_messages()
-  //const comments = await get_comments()
-  //res.render('index.html',{messages, comments})
-  const scores = await get_scores()
-  const notices = req.flash('notices')
-  res.render('index.html', {scores,notices})
+  res.render('index.html', {user: req.session.user})
 })
 
 router.get('/agregar_pregunta', protected_route, (req, res) => {

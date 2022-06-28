@@ -1,39 +1,71 @@
 {% extends 'layout.html' %}
-{% from 'macros.html' import navbar %}
+<!-- {% from 'macros.html' import navbar %} -->
+
+{% block styles %}
+<style>
+  .foto{
+    display: block;
+    width: 5rem;
+  }
+  .revision{
+    color: #F0EA30;
+    font-weight: bold;
+  }
+  </style>
+{% endblock %}
 
 {% block main %}
-  {{ navbar('/', user.es_admin ) }}
-
-
-<h1 class="text-center">Bienvenid@ a Las Trivias {{ user.name }}</h1>
-<br>
-<div class="row">
-  <div class="col-8 offset-2 trv-cajaMensaje text-center">
-    <a href="/jugar" class="btn btn-primary btn-lg">&iexcl;Jugar!</a>
-    <br><br>
-    <p>Haga click en el bot&oacute;n para iniciar la trivia.</p>
-  </div>
-</div>
-<br>
-<br>
-<table class="table table-striped table-bordered border-dark">
-  <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Puntaje</th>
-      <th scope="col">Porcentaje</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for score in scores %}
+  <!-- {{ navbar('/', user.es_admin ) }} -->
+  <h1 id="titulo" class="text-center mt-4 mb-4 fst-italic">Skate Park</h1>
+  <h3 id="subtitulo" class="text-center mb-4">Lista de participantes</h3>
+  <table class="table-dark table align-middle text-center">
+    <thead>
       <tr>
-      <td>{{ score.name }}</td>
-      <td>{{ score.score }}/3</td>
-      <td>{{ score.score/3*100 }}%</td>
+        <th scope="col">#</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">A&ntilde;os de experiencia</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Estado</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</td>
+        <td><img class="foto" src="https://celebvogue.com/wp-content/uploads/2020/05/Tony-Hawk.jpg" alt=""></td>
+        <td>Tony Hawk</td>
+        <td>24</td>
+        <td>980</td>
+        <td><span class="revision">En revision</span></td>
+      </tr>
+      <tr>
+        <th scope="row">2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <p class="text-center">
+    <a href="/login">Iniciar Sesi&oacute;n</a> | <a href="/register">Registrarse</a>
+  </p>
+  <br>
+{% endblock %}
 
-
+{% block script %}
+<script type="text/javascript">
+  ;
+</script>
 {% endblock %}

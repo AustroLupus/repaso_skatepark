@@ -3,7 +3,7 @@ const { Pool } = require('pg')
 const pool = new Pool({
   user: 'ziggywlz',
   host: 'localhost',
-  database: 'trivia',
+  database: 'skatepark',
   port: 5432,
   password: '1234',
   max: 20,
@@ -140,61 +140,3 @@ async function find_user(user){
 module.exports = {
   get_user, create_user, checkadmin, create_admin, add_question, get_preguntas, shuffle,check_respuesta, add_score, get_scores, find_user
 }
-
-
-/* async function get_userId(name){
-  const client = await pool.connect()
-
-  const { rows } =await client.query({
-    text: `select id from users where name=$1`,
-    values: [name]
-  })
-  client.release()
-  return rows[0].id
-} */
-
-/* async function create_message(userID, message){
-  const client = await pool.connect()
-
-  await client.query({
-    text: 'insert into messages (user_id, message) values ($1, $2)',
-    values: [userID, message]
-  })
-
-  client.release()
-
-} */
-
-/* async function create_comment(message_id, user_id, comment){
-  const client = await pool.connect()
-
-  await client.query({
-    text: 'insert into comments (message_id, user_id, comment) values ($1, $2, $3)',
-    values: [message_id, user_id, comment]
-  })
-
-  client.release()
-
-} */
-
-/* async function get_messages(){
-  const client = await pool.connect()
-
-  const { rows } =await client.query({
-    text: 'select messages.message, users.name, messages.id as msg_id from messages join users on messages.user_id=users.id'
-  })
-
-  client.release()
-  return rows
-} */
-
-/* async function get_comments(){
-  const client = await pool.connect()
-
-  const { rows } =await client.query({
-    text: 'select comments.comment, comments.message_id, users.name from comments join users on comments.user_id=users.id'
-  })
-
-  client.release()
-  return rows
-} */

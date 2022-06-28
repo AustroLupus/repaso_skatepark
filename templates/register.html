@@ -3,29 +3,41 @@
 {% block main %}
 
   <div class="row mt-5">
-    <div class="col-4 offset-4 m-azul rounded p-4">
-      <h3>Registrese en para jugar a Las Trivias</h3>
-      <form method="post" action="/register">
-        <div class="mb-3 form-floating">
-          <input name="name" required type="text" class="form-control" placeholder="Nombre Apellido">
-          <label for="floatingInput">Nombre</label>
+    <div class="col-4 offset-4 m-azul rounded p-4 text-center">
+    <h1 id="titulo" class="mb-4 fst-italic">Skate Park</h1>
+    <h2 id="subtitulo" class="mb-4">Registro</h2>
+    <hr>
+      <form method="post" action="/register" class="row g-3">
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail">
         </div>
-        <div class="mb-3 form-floating">
-          <input name="email" required type="email" class="form-control" placeholder="nombre@correo.com">
-          <label for="floatingInput">Email</label>
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre">
         </div>
-        <div class="mb-3 form-floating">
-          <input name="password" required type="password" class="form-control" placeholder="contrasena">
-          <label for="floatingInput">Contrase&ntilde;a</label>
+        <div class="col-md-6">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword">
         </div>
-        <div class="mb-3 form-floating">
-          <input name="password_confirm" required type="password" class="form-control" placeholder="contrasena">
-          <label for="floatingInput">Repita contrase&ntilde;a</label>
+        <div class="col-md-6">
+          <label for="password_confirm" class="form-label">Repetir la password</label>
+          <input type="password" class="form-control" id="password_confirm">
         </div>
-      
-        <button type="submit" class="btn btn-light">Registrarse</button>
+        <div class="col-md-6">
+          <label for="aniosXP" class="form-label">A&ntilde;os de experiencia</label>
+          <input type="text" class="form-control" id="aniosXP">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEspecialidad" class="form-label">Especialidad</label>
+          <input type="text" class="form-control" id="inputEspecialidad">
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Foto de perfil</label>
+          <input class="form-control" type="file" id="formFile">
+        </div>
+        <button type="submit" class="col-md-4 offset-4 btn btn-info">Registrarme</button>
       </form>
-      <a href="/login">Ingresar al Sitio</a>
     </div>
   </div>
 {% endblock %}
