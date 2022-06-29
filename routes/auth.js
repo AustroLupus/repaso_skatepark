@@ -43,12 +43,15 @@ router.get('/register', async (req, res) => {
 })
 
 router.post('/register', async (req, res) => {
-  return res.send(JSON.stringify(req.body))
+  
   // 1. Recuperar los campos del formulario
-  const name = req.body.name
+  const name = req.body.nombre
   const email = req.body.email
   const password = req.body.password
   const password_confirm = req.body.password_confirm
+  const anos_experiencia = req.body.aniosXP
+  const especialidad = req.body.especialidad
+  const foto = req.body.foto
 
   // 2. Validar que ambas contraseñas sean iguales
   if (password != password_confirm) {
@@ -65,12 +68,12 @@ router.post('/register', async (req, res) => {
 
   // 4. Finalmente podemos guardar el nuevo usuario en base de datos
   const password_encrypt = await bcrypt.hash(password, 10)
-  let miPrueba = await checkadmin()
+/*   let miPrueba = await checkadmin()
   if (miPrueba == "") {
     await create_admin(name, email, password_encrypt)
-  }else{
-    await create_user(name, email, password_encrypt)
-  }
+  }else{ */
+    await create_user(email, name, password_encrypt, anos_experiencia, especialidad, foto)
+  //}
   
   // 5. y en la sesión
   req.session.user = {

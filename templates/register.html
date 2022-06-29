@@ -9,32 +9,32 @@
     <hr>
       <form method="post" action="/register" class="row g-3">
         <div class="col-md-6">
-          <label for="inputEmail" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail">
+          <label for="Email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="col-md-6">
           <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre">
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="col-md-6">
-          <label for="inputPassword" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <div class="col-md-6">
           <label for="password_confirm" class="form-label">Repetir la password</label>
-          <input type="password" class="form-control" id="password_confirm">
+          <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
         </div>
         <div class="col-md-6">
           <label for="aniosXP" class="form-label">A&ntilde;os de experiencia</label>
-          <input type="text" class="form-control" id="aniosXP">
+          <input type="text" class="form-control" id="aniosXP" name="aniosXP" required>
         </div>
         <div class="col-md-6">
-          <label for="inputEspecialidad" class="form-label">Especialidad</label>
-          <input type="text" class="form-control" id="inputEspecialidad">
+          <label for="especialidad" class="form-label">Especialidad</label>
+          <input type="text" class="form-control" id="especialidad" name="especialidad" required>
         </div>
         <div class="mb-3">
-          <label for="formFile" class="form-label">Foto de perfil</label>
-          <input class="form-control" type="file" id="formFile">
+          <label for="foto" class="form-label">Foto de perfil</label>
+          <input class="form-control" type="file" id="foto" name="foto" required>
         </div>
         <button type="submit" class="col-md-4 offset-4 btn btn-info">Registrarme</button>
       </form>

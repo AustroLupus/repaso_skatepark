@@ -16,7 +16,7 @@ async function get_user(email) {
   const client = await pool.connect()
 
   const { rows } = await client.query({
-    text: 'select * from users where email=$1',
+    text: 'select * from skaters where email=$1',
     values: [email]
   })
 
@@ -25,12 +25,12 @@ async function get_user(email) {
   return rows[0]
 }
 
-async function create_user(name, email, password) {
+async function create_user(email, name, password, anos_experiencia, especialidad, foto) {
   const client = await pool.connect()
 
   await client.query({
-    text: 'insert into users (name, email, password) values ($1, $2, $3)',
-    values: [name, email, password]
+    text: 'insert into skaters (email,nombre, password, anos_experiencia, especialidad, foto, estado) values ($1, $2, $3, $4, $5, $6, $7)',
+    values: [email, name, password, anos_experiencia, especialidad, foto, 0]
   })
 
   client.release()
